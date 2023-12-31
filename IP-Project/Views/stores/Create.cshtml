@@ -1,0 +1,81 @@
+﻿@model WebApplication1.Models.store
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<body class="Website_body">
+
+    <div class="contact">
+        <div class="content">
+            <h2>Create Store</h2>
+        </div>
+        <div class="contactform">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="nice-label">
+                @Html.LabelFor(model => model.store_name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <i class="fa-solid fa-tags"></i>
+                @Html.EditorFor(model => model.store_name, new { htmlAttributes = new { @placeholder = "Store Name", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.store_name, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="nice-label">
+                @Html.LabelFor(model => model.store_image, htmlAttributes: new { @class = "control-label col-md-2" })
+                <i class="fa-solid fa-image"></i>
+                @Html.EditorFor(model => model.store_image, new { htmlAttributes = new { @placeholder = "Image URL", @class = "form-control" } })
+                @Html.EditorFor(model => model.store_image, new { htmlAttributes = new { @placeholder = "Store Name", @class = "form-control" } })
+
+            </div>
+
+            <div class="nice-label">
+                @Html.LabelFor(model => model.store_open_times, htmlAttributes: new { @class = "control-label col-md-2" })
+                <i class="fa-solid fa-info"></i>
+                @Html.EditorFor(model => model.store_open_times, new { htmlAttributes = new { @placeholder = "Open Times", @class = "form-control" } })
+                @Html.EditorFor(model => model.store_open_times, new { htmlAttributes = new { @placeholder = "Store Name", @class = "form-control" } })
+
+            </div>
+
+            <div class="nice-label">
+                @Html.LabelFor(model => model.store_close_times, htmlAttributes: new { @class = "control-label col-md-2" })
+                <i class="fa-solid fa-info"></i>
+                @Html.EditorFor(model => model.store_close_times, new { htmlAttributes = new { @placeholder = "Close Times", @class = "form-control" } })
+                @Html.EditorFor(model => model.store_close_times, new { htmlAttributes = new { @placeholder = "Store Name", @class = "form-control" } })
+
+            </div>
+
+            <div class="nice-label">
+                @Html.LabelFor(model => model.store_address, htmlAttributes: new { @class = "control-label col-md-2" })
+                <i class="fa-solid fa-map-marker-alt"></i>
+                @Html.EditorFor(model => model.store_address, new { htmlAttributes = new { @placeholder = "Store Address", @class = "form-control" } })
+                @Html.EditorFor(model => model.store_address, new { htmlAttributes = new { @placeholder = "Store Name", @class = "form-control" } })
+
+            </div>
+
+            <div class="nice-label">
+                @Html.LabelFor(model => model.store_Phonenumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <i class="fa-solid fa-phone"></i>
+                @Html.EditorFor(model => model.store_Phonenumber, new { htmlAttributes = new { @placeholder = "Phone Number", @class = "form-control" } })
+                @Html.EditorFor(model => model.store_Phonenumber, new { htmlAttributes = new { @placeholder = "Store Name", @class = "form-control" } })
+
+            </div>
+
+                <div class="Loginbtns">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            }
+
+        </div>
+    </div>
+
+</body>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

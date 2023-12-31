@@ -1,0 +1,106 @@
+﻿@model IEnumerable<WebApplication1.Models.feedback>
+
+@{
+    ViewBag.Title = "Feedback Form";
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+}
+
+
+
+
+<body class="Website_body">
+    <table style="width: 100%; border-collapse: collapse; border: 2px solid white;">
+        <tr style="border-bottom: 1px solid white;">
+
+            <th style="padding: 10px; border-right: 1px solid white;">@Html.DisplayNameFor(model => model.feedback_id) </th>
+            
+            <th style="padding: 10px; border-right: 1px solid white;">Email</th>
+          
+            <th style="padding: 10px; border-right: 1px solid white;">@Html.DisplayNameFor(model => model.feedback_desc) </th>
+            <th style="padding: 10px; border-right: 1px solid white;">@Html.DisplayNameFor(model => model.feedback_date) </th>
+
+            @if (Model != null)
+            {
+                if (Session["Per_role"] == "user")
+                {
+                    <th colspan="2" style="padding: 10px; border-right: 1px solid white; text-align:center">Change</th>
+                }
+            }
+        </tr>
+
+
+        @if (Session["Per_role"] == "admin")
+        {
+
+            <h2 style="text-align:center">Welcome Admin</h2>
+            <br />
+            <h3 style="text-align:center">The feedbacks</h3>
+
+
+
+
+            if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+
+                    var mail = item.GetEmailByPersonId(item.person_id);
+                    <tr style="border-bottom: 1px solid white; text-align:center">
+                        <td style="padding: 10px; border-right: 1px solid white;">@Html.DisplayFor(modelItem => item.feedback_id)</td>
+                        <td style="padding: 10px; border-right: 1px solid white;">@mail</td>
+                        <td style="padding: 10px; border-right: 1px solid white;">@Html.DisplayFor(modelItem => item.feedback_desc)</td>
+                        <td style="padding: 10px; border-right: 1px solid white;">@item.feedback_date.ToString().Substring(0, 10)</td>
+
+                    </tr>
+                    <br />
+                }
+            }
+
+
+        }
+        else
+        {
+            if (Model != null)
+            {
+                <h2 style="text-align:center">Welcome back</h2>
+                <br />
+                <h3 style="text-align:center">Your opinion matters to us</h3>
+                <br />
+                <h3 style="text-align:center">Your feedbacks</h3>
+                <p>@Html.ActionLink("New Feedback", "Create", null, new { @class = "btn btn-info" })</p>
+
+                foreach (var item in Model)
+                {
+                    if (Session["Per_person"] != null)
+                    {
+                        if (item.person_id == (int)Session["Per_person"])
+                        {
+
+        <tr style="border-bottom: 1px solid white; text-align:center">
+        <td style="padding: 10px; border-right: 1px solid white; text-align: center ">@Html.DisplayFor(modelItem => item.feedback_id)</td>
+        <td style="padding: 10px; border-right: 1px solid white; text-align: center">@Session["Person_mail"].ToString()</td>
+
+        <td style="padding: 10px; border-right: 1px solid white; text-align: center">@Html.DisplayFor(modelItem => item.feedback_desc)</td>
+
+        
+
+        <td style="padding: 10px; border-right: 1px solid white; text-align: center">@item.feedback_date.ToString().Substring(0,10)</td>
+
+        <td>@Html.ActionLink("Edit", "Edit_feedback", new { id = item.feedback_id }, new { @class = "btn btn-success" })</td>
+        <td>@Html.ActionLink("Delete", "Delete", new { id = item.feedback_id }, new { @class = "btn btn-danger" })</td>
+
+
+
+    </tr>
+                        }
+                   
+                    }
+                }
+            }
+        }
+    </table>
+
+   
+</body>
+
+

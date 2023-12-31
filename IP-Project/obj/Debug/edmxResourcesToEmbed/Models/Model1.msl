@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TopG_clothingModelStoreContainer" CdmEntityContainer="TopG_clothingEntities2">
+    <EntitySetMapping Name="carts">
+      <EntityTypeMapping TypeName="TopG_clothingModel.cart">
+        <MappingFragment StoreEntitySet="cart">
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="cart_date" ColumnName="cart_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cart_item">
+      <EntityTypeMapping TypeName="TopG_clothingModel.Cart_item">
+        <MappingFragment StoreEntitySet="Cart_item">
+          <ScalarProperty Name="cartItem_id" ColumnName="cartItem_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="cartItem_product_qty" ColumnName="cartItem_product_qty" />
+          <ScalarProperty Name="cartItem_date" ColumnName="cartItem_date" />
+          <ScalarProperty Name="cart_total" ColumnName="cart_total" />
+          <ScalarProperty Name="User_id" ColumnName="User_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cartItems">
+      <EntityTypeMapping TypeName="TopG_clothingModel.cartItem">
+        <MappingFragment StoreEntitySet="cartItem">
+          <ScalarProperty Name="cartItem_id" ColumnName="cartItem_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="cartItem_product_qty" ColumnName="cartItem_product_qty" />
+          <ScalarProperty Name="cartItem_date" ColumnName="cartItem_date" />
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="feedbacks">
+      <EntityTypeMapping TypeName="TopG_clothingModel.feedback">
+        <MappingFragment StoreEntitySet="feedback">
+          <ScalarProperty Name="feedback_id" ColumnName="feedback_id" />
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="feedback_desc" ColumnName="feedback_desc" />
+          <ScalarProperty Name="feedback_date" ColumnName="feedback_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="TopG_clothingModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+          <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+          <ScalarProperty Name="Payment_Method" ColumnName="Payment_Method" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payments">
+      <EntityTypeMapping TypeName="TopG_clothingModel.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+          <ScalarProperty Name="payment_amount_before" ColumnName="payment_amount_before" />
+          <ScalarProperty Name="payment_amount_after" ColumnName="payment_amount_after" />
+          <ScalarProperty Name="discount_code" ColumnName="discount_code" />
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="people">
+      <EntityTypeMapping TypeName="TopG_clothingModel.person">
+        <MappingFragment StoreEntitySet="person">
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="person_Fname" ColumnName="person_Fname" />
+          <ScalarProperty Name="person_Lname" ColumnName="person_Lname" />
+          <ScalarProperty Name="person_username" ColumnName="person_username" />
+          <ScalarProperty Name="person_password" ColumnName="person_password" />
+          <ScalarProperty Name="person_dob" ColumnName="person_dob" />
+          <ScalarProperty Name="person_email" ColumnName="person_email" />
+          <ScalarProperty Name="person_phoneNo" ColumnName="person_phoneNo" />
+          <ScalarProperty Name="person_address" ColumnName="person_address" />
+          <ScalarProperty Name="person_role" ColumnName="person_role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="TopG_clothingModel.product">
+        <MappingFragment StoreEntitySet="products">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_brand_name" ColumnName="product_brand_name" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_price" ColumnName="product_price" />
+          <ScalarProperty Name="product_desc" ColumnName="product_desc" />
+          <ScalarProperty Name="product_qty" ColumnName="product_qty" />
+          <ScalarProperty Name="product_type" ColumnName="product_type" />
+          <ScalarProperty Name="product_size" ColumnName="product_size" />
+          <ScalarProperty Name="product_rating" ColumnName="product_rating" />
+          <ScalarProperty Name="product_image" ColumnName="product_image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productSolds">
+      <EntityTypeMapping TypeName="TopG_clothingModel.productSold">
+        <MappingFragment StoreEntitySet="productSold">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
+          <ScalarProperty Name="product_price" ColumnName="product_price" />
+          <ScalarProperty Name="product_date" ColumnName="product_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stores">
+      <EntityTypeMapping TypeName="TopG_clothingModel.store">
+        <MappingFragment StoreEntitySet="store">
+          <ScalarProperty Name="store_id" ColumnName="store_id" />
+          <ScalarProperty Name="store_name" ColumnName="store_name" />
+          <ScalarProperty Name="store_image" ColumnName="store_image" />
+          <ScalarProperty Name="store_open_times" ColumnName="store_open_times" />
+          <ScalarProperty Name="store_close_times" ColumnName="store_close_times" />
+          <ScalarProperty Name="store_address" ColumnName="store_address" />
+          <ScalarProperty Name="store_Phonenumber" ColumnName="store_Phonenumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="voucherCustomers">
+      <EntityTypeMapping TypeName="TopG_clothingModel.voucherCustomer">
+        <MappingFragment StoreEntitySet="voucherCustomer">
+          <ScalarProperty Name="voucher_id" ColumnName="voucher_id" />
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="voucher_usage" ColumnName="voucher_usage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vouchers">
+      <EntityTypeMapping TypeName="TopG_clothingModel.voucher">
+        <MappingFragment StoreEntitySet="vouchers">
+          <ScalarProperty Name="voucher_id" ColumnName="voucher_id" />
+          <ScalarProperty Name="voucher_code" ColumnName="voucher_code" />
+          <ScalarProperty Name="voucher_value" ColumnName="voucher_value" />
+          <ScalarProperty Name="voucher_qty" ColumnName="voucher_qty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wishlists">
+      <EntityTypeMapping TypeName="TopG_clothingModel.wishlist">
+        <MappingFragment StoreEntitySet="wishlist">
+          <ScalarProperty Name="wishlist_id" ColumnName="wishlist_id" />
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

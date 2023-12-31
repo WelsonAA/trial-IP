@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Recepit";
+
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+
+
+<h2 style="text-align: center;">Order Details</h2>
+<br />
+<br />
+
+
+<body class="Website_body">
+      
+    <div class="pro-container">
+
+        <h1 style="text-align: center;" class="nice-label">Successful transcation</h1>
+        <br />
+
+
+
+        <div class="nice-label" style="text-align: center;">
+            Order ID:
+            <i class="fa-solid fa-info"></i><b style="color: aliceblue;">:       @ViewBag.OrderId</b>
+        </div>
+
+        <div class="nice-label" style="text-align: center;">
+            Order Date:
+            <i class="fa-solid fa-ruler"></i><b style="color: aliceblue;">:       @ViewBag.OrderDate</b>
+        </div>
+
+        <div class="nice-label" style="text-align: center;">
+            Total amount:
+            <i class="fa-solid fa-money-bill"></i><b style="color: aliceblue;">:      @ViewBag.TotalAmount</b>
+        </div>
+
+    </div>
+</body>

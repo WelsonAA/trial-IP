@@ -1,0 +1,73 @@
+﻿@model WebApplication1.Models.product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<body class="Website_body">
+
+    <div class="contact">
+        <div class="content">
+            <h2>Details</h2>
+        </div>
+        <div class="contactform">
+
+            <h3>Product Information</h3>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.product_brand_name)
+                    <i class="fa-solid fa-tags"></i><b style="color: aliceblue;">:      @Html.DisplayFor(model => model.product_brand_name)</b>
+                </div>
+
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.product_name)
+                    <i class="fa-solid fa-ruler"></i><b style="color: aliceblue;">:        @Html.DisplayFor(model => model.product_name)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.product_price)
+                    <i class="fa-solid fa-money-bill"></i><b style="color: aliceblue;">:        @Html.DisplayFor(model => model.product_price)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.product_desc)
+                    <i class="fa-solid fa-info"></i><b style="color: aliceblue;">:      @Html.DisplayFor(model => model.product_desc)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.product_qty)
+                    <i class="fa-solid fa-box"></i><b style="color: aliceblue;">:       @Html.DisplayFor(model => model.product_qty)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.product_type)
+                    <i class="fa-solid fa-tag"></i><b style="color: aliceblue;">:       @Html.DisplayFor(model => model.product_type)</b>
+                </div>
+
+                <div class="nice-label">
+
+                    @Html.DisplayNameFor(model => model.product_size)
+                    <i class="fa-solid fa-ruler"></i><b style="color: aliceblue;">:     @Html.DisplayFor(model => model.product_size)</b>
+                </div>
+
+                <div class="nice-label">
+
+                    @Html.DisplayNameFor(model => model.product_rating)
+                    <i class="fa-solid fa-star"></i><b style="color: aliceblue;">:      @Html.DisplayFor(model => model.product_rating)</b>
+                </div>
+
+
+
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Done" class="btn btn-default" />
+                </div>
+            }
+        </div>
+        </div>
+
+</body>

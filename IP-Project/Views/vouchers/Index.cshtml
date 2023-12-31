@@ -1,0 +1,116 @@
+﻿@model IEnumerable<WebApplication1.Models.voucher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    /* Add your custom CSS styles for the index page here */
+
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow-x: auto; /* Enable horizontal scrolling if needed */
+    }
+
+    h2 {
+        color: #007bff; /* Blue header text */
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        color: #333; /* Darker text color in the table */
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f8f9fa; /* Light gray header */
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9; /* Alternate row background */
+    }
+
+    .action-links a {
+        color: #007bff; /* Blue action links */
+        margin-right: 10px;
+        text-decoration: none;
+    }
+
+        .action-links a:hover {
+            text-decoration: underline; /* Underline action links on hover */
+        }
+
+    .create-link {
+        display: block;
+        margin-top: 20px;
+        color: #fff;
+        background-color: #007bff;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        width: 120px;
+    }
+
+        .create-link:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+<body class="Website_body">
+    <h2>Index</h2>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.voucher_code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.voucher_value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.voucher_qty)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.voucher_code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.voucher_value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.voucher_qty)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.voucher_id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.voucher_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.voucher_id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        <a href="@Url.Action("Create")" class="create-link">Create New</a>
+    </div>
+</body>

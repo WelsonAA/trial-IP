@@ -1,0 +1,80 @@
+﻿@model WebApplication1.Models.voucher
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<body class="Website_body">
+    <style>
+        /* Add your custom CSS styles for the Details page here */
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #333; /* Darker text color */
+        }
+
+        h2 {
+            color: #007bff; /* Blue header text */
+        }
+
+        .details-section {
+            margin-bottom: 20px;
+        }
+
+        .details-label {
+            font-weight: bold;
+            color: #000; /* Darker label text color */
+        }
+
+        .action-links a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+            .action-links a:hover {
+                text-decoration: underline;
+            }
+    </style>
+    <h2>Details</h2>
+
+    <div>
+        <h4>voucher</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.voucher_code)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.voucher_code)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.voucher_value)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.voucher_value)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.voucher_qty)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.voucher_qty)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.voucher_id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>

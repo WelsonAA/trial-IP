@@ -1,0 +1,48 @@
+﻿@model List<WebApplication1.Models.store>
+
+@{
+    ViewBag.Title = "Checkout our places";
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+
+<body class="Website_body">
+    <section id="product1" class="section-p1">
+        <p class="catchyphrase"><b>Visit us in our stores! </b></p>
+        <div class="pro-container">
+            @foreach (var store in Model)
+            {
+                <div class="pro">
+                    <img src="@Url.Content(store.store_image)" alt="menHoodie">
+                    <div class="des">
+                        <p><b>@store.store_name</b><p />
+                        <h5>@store.store_address</h5>
+
+                        <span><b>opening time: @store.store_open_times</b></span>
+                        <br />
+
+                        <span><b>closing time: @store.store_close_times</b></span>
+
+                        <h5>Telephone number: @store.store_Phonenumber</h5>
+                    </div>
+                    @if (Session["Per_role"] != null && Session["Per_role"].ToString() == "admin")
+                    {
+                        <div class="btn"> @Html.ActionLink("Edit", "Edit", new { id = store.store_id })</div>
+                        <div class="btn"> @Html.ActionLink("Delete", "Delete", new { id = store.store_id })</div>
+
+                    }
+                    else
+                    {
+                        <div class="btn">@Html.ActionLink("Details", "Details", new { id = store.store_id })</div>
+                    }
+                </div>
+
+
+
+            }
+
+        </div>
+    </section>
+    <section id="banner" class="section-m1">
+        <marquee behavior="scroll" direction="left" scrollamount="15" repeat="yes"><img src="Images/black_friday.jpg" alt=""></marquee>
+    </section>
+</body>

@@ -1,0 +1,88 @@
+﻿@model WebApplication1.Models.person
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/shared/_LayoutLogin.cshtml";
+}
+
+
+<body>
+    <div class="signincontainer">
+        <div class="signinform">
+            <h1 id="signtitle">Create Account</h1>
+
+            @using (Html.BeginForm("Create", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="input-field">
+            <i class="fa-solid fa-user"></i>
+            @Html.EditorFor(model => model.person_Fname, new { htmlAttributes = new { placeholder = "First Name", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.person_Fname, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-field">
+            <i class="fa-solid fa-user"></i>
+            @Html.EditorFor(model => model.person_Lname, new { htmlAttributes = new { placeholder = "Last Name", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.person_Lname, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-field">
+            <i class="fa-solid fa-user"></i>
+            @Html.EditorFor(model => model.person_username, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.person_username, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-field">
+            <i class="fa-solid fa-lock"></i>
+            @Html.PasswordFor(model => model.person_password, new { placeholder = "Password", @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.person_password, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-field">
+            <i class="fa-solid fa-calendar"></i>
+            @Html.EditorFor(model => model.person_dob, new { htmlAttributes = new { placeholder = "Date of Birth YYYY/MM/DD", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.person_dob, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-field">
+            <i class="fa-solid fa-envelope"></i>
+            @Html.EditorFor(model => model.person_email, new { htmlAttributes = new { placeholder = "Email", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.person_email, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-field">
+            <i class="fa-solid fa-phone"></i>
+            @Html.EditorFor(model => model.person_phoneNo, new { htmlAttributes = new { placeholder = "Phone Number", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.person_phoneNo, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-field">
+            <i class="fa-solid fa-map-marker"></i>
+            @Html.EditorFor(model => model.person_address, new { htmlAttributes = new { placeholder = "Address", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.person_address, "", new { @class = "text-danger" })
+
+        </div>
+
+                <div class="Loginbtns">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                        
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

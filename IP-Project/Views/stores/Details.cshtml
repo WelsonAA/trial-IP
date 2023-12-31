@@ -1,0 +1,51 @@
+﻿@model WebApplication1.Models.store
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<body class="Website_body">
+
+    <div class="contact">
+        <div class="content">
+            <h2>Details</h2>
+        </div>
+        <div class="contactform">
+
+            <h3>Stores Information</h3>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.store_name)
+                    <i class="fa-solid fa-tags"></i><b style="color: aliceblue;">:      @Html.DisplayFor(model => model.store_name)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.store_address)
+                    <i class="fa-solid fa-money-bill"></i><b style="color: aliceblue;">:        @Html.DisplayFor(model => model.store_address)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.store_open_times)
+                    <i class="fa-solid fa-info"></i><b style="color: aliceblue;">:      @Html.DisplayFor(model => model.store_close_times)</b>
+                </div>
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.store_close_times)
+                    <i class="fa-solid fa-info"></i><b style="color: aliceblue;">:      @Html.DisplayFor(model => model.store_close_times)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.store_Phonenumber)
+                    <i class="fa-solid fa-box"></i><b style="color: aliceblue;">:       @Html.DisplayFor(model => model.store_Phonenumber)</b>
+                </div>
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Done" class="btn btn-default" />
+                </div>
+            }
+        </div>
+    </div>
+
+</body>

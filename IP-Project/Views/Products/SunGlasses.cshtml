@@ -1,0 +1,59 @@
+﻿@model List<WebApplication1.Models.product>
+
+@{
+    ViewBag.Title = "Sunglasses With Best Prices";
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+
+<body class="Website_body">
+    <section id="product1" class="section-p1">
+        <p class="catchyphrase"><b>Catch the Summer Offer to buy Hoodies with Best Prices! up tp 50% </b></p>
+        <div class="pro-container">
+            @foreach (var product in Model)
+            {
+            <div class="pro">
+                <img src="@Url.Content(product.product_image)" alt="menHoodie">
+                <div class="des">
+                    <span><b>@product.product_brand_name</b></span>
+                    <h4>@product.product_name</h4>
+                    <h5>@product.product_desc</h5>
+                    <div class="start">
+                        @for (int i = 0; i < product.product_rating; i++)
+                        {
+                            <i class="fa-solid fa-star"></i>
+                        }
+                    </div>
+                    <h4>@product.product_price LE</h4>
+                    <p><b>Quantity: @product.product_qty</b><p />
+                </div>
+                @if (Session["Per_role"] != null && Session["Per_role"].ToString() == "admin")
+                {
+                    <div class="btn"> @Html.ActionLink("Edit", "Edit", new { id = product.product_id })</div>
+                    <div class="btn"> @Html.ActionLink("Delete", "Delete", new { id = product.product_id })</div>
+
+                }
+                else if (Session["Per_person"] != null)
+                {
+                    <form action="@Url.Action("AddToCart", "Cart")" method="post">
+                        @Html.Hidden("productId", product.product_id)
+                        <button type="submit" class="btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </form>
+                    <div class="btn">@Html.ActionLink("Details", "Details", new { id = product.product_id })</div>
+                }
+                else
+                {
+                    <div class="btn">@Html.ActionLink("Details", "Details", new { id = product.product_id })</div>
+
+                }
+            </div>
+
+
+
+            }
+
+        </div>
+    </section>
+    <section id="banner" class="section-m1">
+        <marquee behavior="scroll" direction="left" scrollamount="15" repeat="yes"><img src="Images/black_friday.jpg" alt=""></marquee>
+    </section>
+</body>

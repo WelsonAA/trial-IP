@@ -1,0 +1,76 @@
+﻿@model WebApplication1.Models.person
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<body class="Website_body">
+
+    <div class="contact">
+        <div class="content">
+            <h2>Details</h2>
+        </div>
+        <div class="contactform">
+
+            <h3>Person Information</h3>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.person_Fname)
+                    <i class="fa-solid fa-tags"></i><b style="color: aliceblue;">:      @Html.DisplayFor(model => model.person_Fname)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.person_Lname)
+                    <i class="fa-solid fa-money-bill"></i><b style="color: aliceblue;">:        @Html.DisplayFor(model => model.person_Lname)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.person_username)
+                    <i class="fa-solid fa-info"></i><b style="color: aliceblue;">:      @Html.DisplayFor(model => model.person_username)</b>
+                </div>
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.person_password)
+                    <i class="fa-solid fa-info"></i><b style="color: aliceblue;">:      @Html.DisplayFor(model => model.person_password)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.person_dob)
+                    <i class="fa-solid fa-box"></i><b style="color: aliceblue;">:       @Html.DisplayFor(model => model.person_dob)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.person_email)
+                    <i class="fa-solid fa-box"></i><b style="color: aliceblue;">:       @Html.DisplayFor(model => model.person_email)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.person_phoneNo)
+                    <i class="fa-solid fa-box"></i><b style="color: aliceblue;">:       @Html.DisplayFor(model => model.person_phoneNo)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.person_address)
+                    <i class="fa-solid fa-box"></i><b style="color: aliceblue;">:       @Html.DisplayFor(model => model.person_address)</b>
+                </div>
+
+                <div class="nice-label">
+                    @Html.DisplayNameFor(model => model.person_role)
+                    <i class="fa-solid fa-box"></i><b style="color: aliceblue;">:       @Html.DisplayFor(model => model.person_role)</b>
+                </div>
+
+
+                <div class="form-actions no-color">
+                    @if (Session["Per_role"] != null && Session["Per_role"].ToString() == "admin")
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.person_id }, new { @class = "btn btn-default" })
+                    } 
+                    
+                </div>
+            }
+        </div>
+    </div>
+
+</body>

@@ -1,0 +1,43 @@
+﻿@model WebApplication1.Models.person
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/shared/_LayoutLogin.cshtml";
+}
+
+<h1 class="nice-label" style="text-align:center; background-color:inherit;">@ViewBag.error</h1>
+<body>
+    <div class="signincontainer">
+        <div class="signinform">
+            <h1 id="signtitle">Log in</h1>
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+        <div class="input-field">
+            <i class="fa-solid fa-envelope"></i>
+            @Html.TextBoxFor(model => model.person_email, new { placeholder = "email", name = "person_email" })
+            @Html.ValidationMessageFor(model => model.person_email, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-field">
+            <i class="fa-solid fa-lock"></i>
+            @Html.PasswordFor(model => model.person_password, new { placeholder = "password", name = "person_password" })
+            @Html.ValidationMessageFor(model => model.person_password, "", new { @class = "text-danger" })
+
+        </div>
+
+                <p id="forgetpassword">
+                    Forget Password ? <a>@Html.ActionLink("Forget Password", "ForgetPassword", "UserHelp", null, new { @class = "hreflink" })</a>
+                </p>
+
+                <div class="Loginbtns">
+                    <button type="submit"><b>Log in</b></button>
+                </div>
+
+            }
+            <div class="Loginbtns"><button>@Html.ActionLink("Create Acount", "Create", "Account", null, new { @class = "hreflink" })</button></div>
+        </div>
+    </div>
+</body>

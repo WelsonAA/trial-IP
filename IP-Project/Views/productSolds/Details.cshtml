@@ -1,0 +1,104 @@
+﻿@model WebApplication1.Models.productSold
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+
+    .Website_body {
+        margin: 20px;
+    }
+
+    .details-container {
+        width: 60%;
+        margin: auto;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    .dl-horizontal dt {
+        float: left;
+        width: 160px;
+        overflow: hidden;
+        clear: left;
+        text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 180px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: #fff;
+        padding: 6px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+        .btn:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+</style>
+
+<h2 class="text-center">Details</h2>
+
+<body class="Website_body">
+    <div class="details-container">
+        <h4>Product Sold</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.product_quantity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.product_quantity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.product_price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.product_price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.product_date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.product_date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.product.product_brand_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.product.product_brand_name)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.product_id }, new { @class = "btn" }) |
+        @Html.ActionLink("Back to List", "Index", new { @class = "btn" })
+    </p>
+</body>

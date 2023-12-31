@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <header class="Headercontainer">
+        <nav>
+            <img src="~/Content/Images/logo.jpg" alt="Company's Logo" class="logo">
+            <p class="storename"><b>HassanEl-Tobgy Store™</b></p>
+            <ul>
+                <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "boldclass" })</li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn"><b>Products</b></a>
+                    <div class="dropdown-content">
+                        <div class="nested-dropdown">
+                            <a href="#"><b>Hoodies</b></a>
+                            <div class="sub-nested-dropdown">
+                                <a>@Html.ActionLink("Women Hoodies", "WomenHoodies", "Products", null, new { @class = "boldclass" })</a>
+                                <a>@Html.ActionLink("Men Hoodies", "MenHoodies", "Products", null, new { @class = "boldclass" })</a>
+                            </div>
+                        </div>
+                        <a>@Html.ActionLink("Sun Glasses", "SunGlasses", "Products", null, new { @class = "boldclass" })</a>
+                        <a>@Html.ActionLink("Shirts", "Shirts", "Products", null, new { @class = "boldclass" })</a>
+                    </div>
+                </li>
+
+                <li>    <a>@Html.ActionLink("Our stores", "Index", "stores", null, new { @class = "boldclass" })</a></li>
+
+
+                <li>@Html.ActionLink("About-us", "About", "Home", null, new { @class = "boldclass" })</li>
+                
+                    @if (Session["Per_role"]?.ToString() == "admin")
+                    {
+                        <li>@Html.ActionLink("Vouchers", "Index", "vouchers", null, new { @class = "boldclass" })</li>
+                    }
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn"><b>Contact</b></a>
+                    <div class="dropdown-content">
+                        <a href="Contact.html">Contact-us</a>
+                        @Html.ActionLink("feedback", "feedback", "UserHelp", null, new { @class = "boldclass" })
+                        @Html.ActionLink("FAQS", "FAQ", "UserHelp", null, new { @class = "boldclass" })
+                    </div>
+                </li>
+
+                @if (Session["Login_valid"] == null || !(bool)Session["Login_valid"])
+                {
+                    <li>@Html.ActionLink("Login", "Login", "Account", null, new { @class = "boldclass" })</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "boldclass" })</li>
+                }
+
+
+                <li><a href="@Url.Action("Index", "Cart")"><i class="fa-solid fa-cart-shopping"></i></a></li>
+
+                @if (Session["Per_role"] != null && Session["Per_role"].ToString() == "admin")
+                {
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn" style="color: red;"><b>Admin</b></a>
+                        <div class="dropdown-content">
+                            @Html.ActionLink("Users details", "Index", "Account", null, new { @class = "boldclass" })
+                            @Html.ActionLink("Products sold", "Index", "productSolds", null, new { @class = "boldclass" })
+
+                        </div>
+                    </li>
+                }
+                else if (Session["Per_role"] != null && Session["Per_role"].ToString() == "user")
+                {
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn"><b>Profile</b></a>
+                        <div class="dropdown-content">
+                            @Html.ActionLink("My details", "Details", "Account", new { id = Session["Per_person"] }, new { @class = "boldclass" })
+                        </div>
+                    </li>
+                }
+            </ul>
+        </nav>
+
+
+
+    </header>
+
+    <div class="container body-content">
+        @RenderBody()
+        <script src="~/Content/javascript.js"></script>
+        <footer class="footer">
+
+
+            <div class="ContactInfo">
+                <div class="box">
+                    <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="text">
+                        <h3><b>Address</b></h3>
+                        <p><b>Autosturad,Sheraton,block 52</b></p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="text">
+                        <h3><b>Email</b></h3>
+                        <p><b>hassaneltobgy56@gmail.com</b></p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="text">
+                        <h3><b>Phone</b></h3>
+                        <p><b>01061952782</b></p>
+
+                    </div>
+                    <div class="box">
+
+                        <div class="copyrights">
+                            <p><b>copyrights reserved 2023</b></p>
+                        </div>
+
+                    </div>
+                    <div class="social-icons">
+                        <a href=""><i class="fa-brands fa-facebook"></i> </a>
+                        <a href=""> <i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+
+        </footer>
+    </div>
+
+
+</body>
+</html>

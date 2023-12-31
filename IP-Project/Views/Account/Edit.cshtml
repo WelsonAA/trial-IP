@@ -1,0 +1,100 @@
+﻿@model WebApplication1.Models.person
+
+@{
+    ViewBag.Title = "Edit Person";
+}
+
+<body class="Website_body">
+
+    <div class="contact">
+        <div class="content">
+            <h2>Edit Person</h2>
+        </div>
+        <div class="contactform">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="input-field">
+                    @Html.HiddenFor(model => model.person_id)
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.person_Fname, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <i class="fa-solid fa-user"></i>
+                    @Html.EditorFor(model => model.person_Fname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.person_Fname, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.person_Lname, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <i class="fa-solid fa-user"></i>
+                    @Html.EditorFor(model => model.person_Lname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.person_Lname, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="nice-label">
+
+                    @Html.LabelFor(model => model.person_username, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.person_username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.person_username, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="nice-label">
+
+                    @Html.LabelFor(model => model.person_password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.person_password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.person_password, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.person_dob, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.person_dob, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.person_dob, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.person_email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.person_email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.person_email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.person_phoneNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.person_phoneNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.person_phoneNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.person_address, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.person_address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.person_address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.person_role, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.person_role, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.person_role, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="Loginbtns">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            }
+        </div>
+    </div>
+
+</body>

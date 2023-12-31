@@ -1,0 +1,88 @@
+﻿@model WebApplication1.Models.product
+
+@{
+    ViewBag.Title = "Delete Product";
+}
+
+<body class="Website_body">
+
+    <div class="contact">
+        <div class="content">
+            <h2>Delete Product</h2>
+        </div>
+        <div class="contactform">
+
+            <h3>Are you sure you want to delete this product?</h3>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="input-field">
+                    @Html.HiddenFor(model => model.product_id)
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.product_brand_name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <i class="fa-solid fa-tags"></i>
+                    @Html.DisplayFor(model => model.product_brand_name)
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.product_name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <i class="fa-solid fa-tags"></i>
+                    @Html.DisplayFor(model => model.product_name)
+                </div>
+
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.product_price, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <i class="fa-solid fa-money-bill"></i>
+                    @Html.DisplayFor(model => model.product_price)
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.product_desc, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <i class="fa-solid fa-info"></i>
+                    @Html.DisplayFor(model => model.product_desc)
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.product_qty, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <i class="fa-solid fa-box"></i>
+                    @Html.DisplayFor(model => model.product_qty)
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.product_type, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <i class="fa-solid fa-tag"></i>
+                    @Html.DisplayFor(model => model.product_type)
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.product_size, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <i class="fa-solid fa-ruler"></i>
+                    @Html.DisplayFor(model => model.product_size)
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.product_rating, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <i class="fa-solid fa-star"></i>
+                    @Html.DisplayFor(model => model.product_rating)
+                </div>
+
+                <div class="nice-label">
+                    @Html.LabelFor(model => model.product_image, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <i class="fa-solid fa-image"></i>
+                    @Html.DisplayFor(model => model.product_image)
+                </div>
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" />
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+        </div>
+    </div>
+
+</body>
