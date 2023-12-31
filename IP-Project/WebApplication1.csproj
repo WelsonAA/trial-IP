@@ -154,6 +154,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\metaClassFeedback.cs" />
+    <Compile Include="Models\metaClassOrder.cs" />
     <Compile Include="Models\metaClassProduct.cs" />
     <Compile Include="Models\metaClassProductSold.cs" />
     <Compile Include="Models\metaClassStores.cs" />

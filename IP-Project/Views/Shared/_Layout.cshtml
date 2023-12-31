@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link href="~/Content/Site.css" rel="stylesheet" />
-    
+
 </head>
 <body>
     <header class="Headercontainer">
@@ -31,19 +31,16 @@
                 </li>
 
                 <li>    <a>@Html.ActionLink("Our stores", "Index", "stores", null, new { @class = "boldclass" })</a></li>
-
+                @if (Session["Per_role"]?.ToString() == "admin")
+                {
+                    <li>@Html.ActionLink("Vouchers", "Index", "vouchers", null, new { @class = "boldclass" })</li>
+                }
 
                 <li>@Html.ActionLink("About-us", "About", "Home", null, new { @class = "boldclass" })</li>
-                
-                    @if (Session["Per_role"]?.ToString() == "admin")
-                    {
-                        <li>@Html.ActionLink("Vouchers", "Index", "vouchers", null, new { @class = "boldclass" })</li>
-                    }
 
                 <li class="dropdown">
                     <a href="#" class="dropbtn"><b>Contact</b></a>
                     <div class="dropdown-content">
-                        <a href="Contact.html">Contact-us</a>
                         @Html.ActionLink("feedback", "feedback", "UserHelp", null, new { @class = "boldclass" })
                         @Html.ActionLink("FAQS", "FAQ", "UserHelp", null, new { @class = "boldclass" })
                     </div>
@@ -78,6 +75,8 @@
                         <a href="#" class="dropbtn"><b>Profile</b></a>
                         <div class="dropdown-content">
                             @Html.ActionLink("My details", "Details", "Account", new { id = Session["Per_person"] }, new { @class = "boldclass" })
+                            @Html.ActionLink("Order history", "Index", "Orders", new { id = Session["Per_person"] }, new { @class = "boldclass" })
+
                         </div>
                     </li>
                 }

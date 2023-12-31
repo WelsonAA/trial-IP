@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<WebApplication1.Models.productSold>
 
-@{
-    ViewBag.Title = "Index";
-}
+@{ ViewBag.Title = "Index"; }
 
 <style>
     body {
@@ -74,23 +72,22 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.product_quantity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.product_price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.product_date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.product.product_brand_name)
-                </td>
-                <td>
-                    <a href="@Url.Action("Details", "productSolds", new { id = item.product_id })" class="details-button">Details</a>
-                </td>
-            </tr>
-        }
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.product_quantity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.product_price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.product_date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.product.product_brand_name)
+    </td>
+    <td>
+        <a href="@Url.Action("Details", "productSolds", new { id = item.product_id })" class="details-button">Details</a>
+    </td>
+</tr>}
     </table>
 </body>

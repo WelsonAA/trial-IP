@@ -5,15 +5,48 @@
     Layout = "~/Views/shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
+<style>
+    .table {
+        width: 80%;
+        margin: auto;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #dc3545; /* Red background for heading */
+            color: #fff; /* White text color for heading */
+        }
+
+        .table tr:hover {
+            background-color: #e0e0e0; /* Hover row color */
+        }
+
+    .details-button {
+        background-color: #007bff; /* Blue button color */
+        color: #fff; /* White text color */
+        padding: 6px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+</style>
 
 <body class="Website_body">
     <section id="peopleIndex" class="section-p1">
         <h2 style="text-align: center;">Users details</h2>
 
         <div class="pro-container">
-            <table class="table white-text-table" >
+            <table class="table white-text-table">
                 <tr class="nice-label">
                     <th>
                         @Html.DisplayNameFor(model => model.person_Fname)
@@ -61,7 +94,7 @@
                             @Html.DisplayFor(modelItem => item.person_password)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.person_dob).ToString().Substring(0,10)
+                            @Html.DisplayFor(modelItem => item.person_dob).ToString().Substring(0, 10)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.person_email)
@@ -82,7 +115,8 @@
                         </td>
                     </tr>
                 }
+
             </table>
-            </div>
-        </section>
+        </div>
+    </section>
 </body>
